@@ -7,7 +7,7 @@ for Intrusion and Anomaly Detection in Multi-Tenant Cloud Environments**
 
 ---
 
-## 📌 Overview
+## Overview
 
 Cloud computing's multi-tenant, shared-infrastructure model creates security 
 risks that traditional and even many ML-based intrusion detection systems 
@@ -21,14 +21,14 @@ evaluates a federated deep learning IDS that:
 
 ---
 
-## 🎯 Research Question
+## Research Question
 
 > Can a federated deep learning-based intrusion detection framework, hardened 
 > with adversarial training and augmented with explainable AI, achieve 
 > detection performance comparable to centralized DL models on novel/zero-day 
 > attacks, while preserving tenant data privacy and improving interpretability?
 
-## 🧩 Objectives
+## Objectives
 
 - [ ] Design a federated deep learning architecture (CNN/LSTM) for cloud IDS
 - [ ] Integrate adversarial training (FGSM/PGD) into the federated pipeline
@@ -38,7 +38,7 @@ evaluates a federated deep learning IDS that:
 
 ---
 
-## 🗂️ Repository Structure
+## Repository Structure
 
 FedGuard-XAI/
 ├── data/ # Dataset download/preprocessing scripts (not raw data)
@@ -66,7 +66,7 @@ FedGuard-XAI/
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Component | Tool |
 |---|---|
@@ -79,7 +79,7 @@ FedGuard-XAI/
 
 ---
 
-## 📊 Datasets
+## Datasets
 
 Publicly available network/cloud intrusion detection datasets, partitioned 
 in a **non-IID** fashion across simulated tenant clients to reflect realistic 
@@ -94,7 +94,7 @@ multi-tenant cloud environments:
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ```bash
 # Clone the repository
@@ -119,17 +119,16 @@ python federated/client.py --client_id 1
 
 ---
 
-## 👥 Team
+## Team
 
 | Name | Role |
 |---|---|
-| Student 1 | Team Lead / ML Engineer — federated model design & training |
-| Student 2 | Security & Threat Modeling Lead — dataset curation, adversarial scenarios |
-| Student 3 | Data & Experimentation Lead — benchmarking, explainability, evaluation |
+| Student 1 | Hadi Saleemi - 22i-1043 |
+| Student 2 | Zainab Fatima - 22i-1064 |
 
 ---
 
-## 📅 Milestones
+## Milestones
 
 | Cutoff | Deliverable | Due |
 |---|---|---|
@@ -140,7 +139,7 @@ python federated/client.py --client_id 1
 
 ---
 
-## 📚 Key References
+## Key References
 
 1. Al Morsy, Grundy & Müller, *An analysis of the cloud computing security problem*, arXiv:1609.01107, 2016.
 2. Arogundade, *Addressing cloud computing security and visibility issues*, IARJSET, 2023.
