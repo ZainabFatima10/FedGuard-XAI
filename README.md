@@ -128,17 +128,6 @@ python federated/client.py --client_id 1
 
 ---
 
-## Milestones
-
-| Cutoff | Deliverable | Due |
-|---|---|---|
-| Cutoff 1 | Proposal (problem, RQ, objectives, methodology) | Day 10 |
-| Cutoff 2 | Baseline centralized model + FL prototype | TBD |
-| Cutoff 3 | Adversarial + explainability integration | TBD |
-| Final | Full evaluation, paper draft, presentation | TBD |
-
----
-
 ## Key References
 
 1. Al Morsy, Grundy & Müller, *An analysis of the cloud computing security problem*, arXiv:1609.01107, 2016.
