@@ -1,139 +1,105 @@
 # FedGuard-XAI
 
-**A Federated, Adversarially-Robust, and Explainable Deep Learning Framework 
-for Intrusion and Anomaly Detection in Multi-Tenant Cloud Environments**
+A Conceptual Framework for Federated, Adversarially-Aware, and Explainable
+Deep Learning-Based Intrusion Detection in Multi-Tenant Cloud Environments
 
-> Cutoff 1 Research Proposal — Cloud Computing Security using Federated Deep Learning
+Cutoff 1 Research Proposal — Cloud Computing Security
 
 ---
 
 ## Overview
 
-Cloud computing's multi-tenant, shared-infrastructure model creates security 
-risks that traditional and even many ML-based intrusion detection systems 
-(IDS) fail to fully address — particularly around **data privacy**, 
-**adversarial robustness**, and **explainability**. This project designs and 
-evaluates a federated deep learning IDS that:
+Cloud computing's multi-tenant, shared-infrastructure model creates security
+risks that traditional and even many ML-based intrusion detection systems
+(IDS) do not fully address, particularly around data privacy, adversarial
+robustness, and explainability. A recent bibliometric review of the field
+(Alzoubi et al., 2024) names federated learning as a promising but
+under-developed direction for cloud security and stops there.
 
-1. Trains collaboratively across simulated cloud tenants **without sharing raw data** (Federated Learning)
-2. Is hardened against **adversarial evasion attacks** (adversarial training)
-3. Produces **human-interpretable explanations** for its predictions (XAI)
+This project takes that stated gap as its starting point. It does not
+implement or benchmark a full system. Instead, it proposes a conceptual
+reference architecture combining:
+
+1. Federated learning (FL) for privacy-preserving collaborative training
+   across cloud tenants
+2. Adversarially-aware training principles for robustness against evasion
+   attacks
+3. Explainable AI (XAI) for interpretable detection outputs
+
+and reasons about expected performance, trade-offs, and feasibility using
+evidence already reported in existing literature.
 
 ---
 
 ## Research Question
 
-> Can a federated deep learning-based intrusion detection framework, hardened 
-> with adversarial training and augmented with explainable AI, achieve 
-> detection performance comparable to centralized DL models on novel/zero-day 
-> attacks, while preserving tenant data privacy and improving interpretability?
+What would a federated, adversarially-aware, and explainable deep learning
+framework for cloud intrusion detection look like, and, based on evidence
+already reported in the literature, what performance characteristics,
+trade-offs, and feasibility concerns can reasonably be anticipated?
 
 ## Objectives
 
-- [ ] Design a federated deep learning architecture (CNN/LSTM) for cloud IDS
-- [ ] Integrate adversarial training (FGSM/PGD) into the federated pipeline
-- [ ] Integrate explainability (SHAP/LIME) for detection outputs
-- [ ] Benchmark against centralized DL baselines on accuracy, robustness, 
-      privacy, and interpretability
+- Synthesize existing literature on FL, adversarial robustness, and XAI as
+  applied separately to cloud/network security, and identify why they have
+  not yet been combined
+- Propose a conceptual reference architecture integrating these three
+  components for multi-tenant cloud intrusion detection
+- Reason, using evidence from existing studies, about the expected
+  performance profile, privacy benefits, and adversarial resilience of the
+  proposed architecture
+- Identify open feasibility questions and outline a roadmap for future
+  empirical validation
+
+---
+
+## Scope
+
+This is a conceptual/design-stage proposal, not an implementation. No model
+training, attack simulation, or benchmarking is performed at this stage.
+The deliverables are: a literature synthesis, a proposed architecture, a
+reasoned discussion of expected behavior, and a list of open questions for
+future empirical work.
 
 ---
 
 ## Repository Structure
-
 FedGuard-XAI/
-├── data/ # Dataset download/preprocessing scripts (not raw data)
-│ └── preprocess.py
-├── federated/ # FL client/server simulation code
-│ ├── client.py
-│ ├── server.py
-│ └── fed_avg.py
-├── adversarial/ # Adversarial attack/training scripts
-│ └── fgsm_pgd.py
-├── explainability/ # SHAP/LIME analysis notebooks
-│ └── shap_analysis.ipynb
-├── models/ # Model architectures (CNN/LSTM)
-│ └── ids_model.py
-├── experiments/ # Experiment configs and results
-│ ├── configs/
-│ └── results/
-├── docs/ # Proposal, reports, slides
+├── docs/
+│ ├── proposal.tex # Cutoff 1 proposal (Overleaf source)
 │ ├── proposal.pdf
 │ └── slides.pdf
-├── requirements.txt
-├── LICENSE
-└── README.md
+├── literature/
+│ ├── synthesis.md # Structured notes per component (FL, adversarial, XAI)
+│ └── references.bib
+├── architecture/
+│ └── reference_architecture.png # Proposed conceptual diagram
+├── README.md
+└── LICENSE
 
-
----
-
-## Tech Stack
-
-| Component | Tool |
-|---|---|
-| Deep Learning | PyTorch |
-| Federated Learning | Flower (`flwr`) |
-| Adversarial Attacks | Adversarial Robustness Toolbox (ART) |
-| Explainability | SHAP, LIME |
-| Datasets | CICIDS2017/2018, NSL-KDD, UNSW-NB15 |
-| Experiment Tracking | Weights & Biases / MLflow |
-
----
-
-## Datasets
-
-Publicly available network/cloud intrusion detection datasets, partitioned 
-in a **non-IID** fashion across simulated tenant clients to reflect realistic 
-multi-tenant cloud environments:
-
-- [CICIDS2017/2018](https://www.unb.ca/cic/datasets/ids-2017.html)
-- [NSL-KDD](https://www.unb.ca/cic/datasets/nsl.html)
-- [UNSW-NB15](https://research.unsw.edu.au/projects/unsw-nb15-dataset)
-
-> Raw datasets are **not** committed to this repository. Run 
-> `data/preprocess.py` after downloading locally.
-
----
-
-## Getting Started
-
-```bash
-# Clone the repository
-git clone https://github.com/<team-org>/FedGuard-XAI.git
-cd FedGuard-XAI
-
-# Create environment
-python -m venv venv
-source venv/bin/activate      # Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Preprocess data (after manual download)
-python data/preprocess.py --dataset cicids2017
-
-# Run federated training simulation
-python federated/server.py &
-python federated/client.py --client_id 0
-python federated/client.py --client_id 1
-```
 
 ---
 
 ## Team
 
-| Name | Role |
-|---|---|
-| Student 1 | Hadi Saleemi - 22i-1043 |
-| Student 2 | Zainab Fatima - 22i-1064 |
+| Name | Roll Number | Role |
+|---|---|---|
+| Hadi Saleemi | 22i-1043 |
+| Zainab Fatima | 22i-1064 |
+
+Institution: FAST National University of Computer and Emerging Sciences (FAST-NUCES)
+
 
 ---
 
 ## Key References
 
-1. Al Morsy, Grundy & Müller, *An analysis of the cloud computing security problem*, arXiv:1609.01107, 2016.
-2. Arogundade, *Addressing cloud computing security and visibility issues*, IARJSET, 2023.
-3. Alzoubi, Mishra & Topcu, *Research trends in deep learning and machine learning for cloud computing security*, Artificial Intelligence Review, 2024.
-4. Ahmadi, *Systematic literature review on cloud computing security: threats and mitigation strategies*, Journal of Information Security, 2024.
-5. Khan, Hussain & Islam, *Optimizing content cache with vehicular edge computing: a deep federated learning based novel predictive study*, 2024.
-6. McMahan et al., *Communication-efficient learning of deep networks from decentralized data*, AISTATS, 2017.
-7. Goodfellow, Shlens & Szegedy, *Explaining and harnessing adversarial examples*, ICLR, 2015.
+1. Al Morsy, Grundy, and Muller, "An analysis of the cloud computing security problem," arXiv:1609.01107, 2016.
+2. Arogundade, "Addressing cloud computing security and visibility issues," IARJSET, 2023.
+3. Alzoubi, Mishra, and Topcu, "Research trends in deep learning and machine learning for cloud computing security," Artificial Intelligence Review, 2024.
+4. Ahmadi, "Systematic literature review on cloud computing security: threats and mitigation strategies," Journal of Information Security, 2024.
+5. Khan, Hussain, and Islam, "Optimizing content cache with vehicular edge computing: a deep federated learning based novel predictive study," 2024.
+6. McMahan et al., "Communication-efficient learning of deep networks from decentralized data," AISTATS, 2017.
+7. Goodfellow, Shlens, and Szegedy, "Explaining and harnessing adversarial examples," ICLR, 2015.
+
+---
